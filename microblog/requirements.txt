@@ -1,0 +1,16 @@
+Flask
+Flask-SQLAlchemy
+Flask-wtf
+Flask-migrate
+psycopg2-binary
+Flask-login
+email-validator
+flask-mail
+pyjwt
+requests
+flask-bootstrap
+flask-moment
+flask-babel
+langdetect
+gunicorn
+flask-httpauth

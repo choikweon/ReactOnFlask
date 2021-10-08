@@ -1,0 +1,27 @@
+services:
+  app:
+    command: bash -c "
+      flask db init &&
+      flask db migrate -m \"all at once\" &&
+      flask db upgrade &&
+      flask run -h 0.0.0.0"
+      #gunicorn -b 0.0.0.0:8888 -w 4 microblog:app"
+    ports:
+      - 5000:5000
+      - 8888:8888
+    image: mbl:23.0.0
+    env_file:
+      - ./.env.dev
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=pw
+      - POSTGRES_DB=mbldb
+  # email:
+  #   command: flask run -h 0.0.0.0
+  #   image: fmail:1.0.2
+  #   ports:
+  #     - 5001:5001
+
+
